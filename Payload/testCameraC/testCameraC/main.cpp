@@ -14,8 +14,15 @@ int main()
 {
 	BOOL verbose = verb();
 	int nRet = 0;
+
 	//Camera Initialization
 	HIDS hCam = initialize(nRet);
+
+	//Catches the case if the camera initialization has failed 
+	if (hCam == NULL)
+	{
+		return 0;
+	}
 	MSG msg;
 
 	//Selecting which mode to run the camera with 
@@ -46,8 +53,8 @@ int main()
 				break;
 			}
 		}
-		//PeekMessage(&msg, NULL, 0, 0, PM_REMOVE);
-		//DispatchMessage(&msg);
+		PeekMessage(&msg, NULL, 0, 0, PM_REMOVE);
+		DispatchMessage(&msg);
 	}
 	//Sets the trigger mode.
 	//TO DO: need to do something special if it is hardware triggered!
@@ -59,6 +66,7 @@ int main()
 			cout << "Camera has failed to switch to trigger mode" << endl << endl;
 			cout << "Terminating Program..." << endl;
 		}
+		return 1;
 	}
 	else
 	{
