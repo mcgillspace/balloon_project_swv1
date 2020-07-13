@@ -8,6 +8,6 @@
 #include <tchar.h>
 
 HIDS initialize(int nRet);
-int capture(HIDS hCam, wchar_t *filename);
+int captureSingle(HIDS hCam, wchar_t *filename);
 BOOL verb();
 

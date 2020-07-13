@@ -12,7 +12,11 @@ using namespace std;
 
 int main()
 {
+	//Need to make this inputted by the raspberry Pi 4 
 	wchar_t path[100] = _T("C:\\Users\\joebe\\Desktop\\image.jpg");
+
+	//This is for testing purposes; code will print out statements if it either 
+	//succeeds or fails a task.
 	BOOL verbose = verb();
 	int nRet = 0;
 
@@ -47,7 +51,7 @@ int main()
 		{
 			cout << "Set the camera to trigger mode" << endl;
 		}
-		nRet = capture(hCam,path);
+		nRet = captureSingle(hCam,path);
 		if (nRet == 1)
 		{
 			if (verbose) 
