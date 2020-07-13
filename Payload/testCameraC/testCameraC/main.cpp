@@ -12,6 +12,7 @@ using namespace std;
 
 int main()
 {
+	wchar_t path[100] = _T("C:\\Users\\joebe\\Desktop\\image.jpg");
 	BOOL verbose = verb();
 	int nRet = 0;
 
@@ -24,8 +25,7 @@ int main()
 		return 0;
 	}
 	
-	MSG msg;
-
+	
 	//Selecting which mode to run the camera with 
 	int nMode;
 	nMode = IS_SET_TRIGGER_SOFTWARE;
@@ -47,7 +47,7 @@ int main()
 		{
 			cout << "Set the camera to trigger mode" << endl;
 		}
-		nRet = capture(hCam);
+		nRet = capture(hCam,path);
 		if (nRet == 1)
 		{
 			if (verbose) 
