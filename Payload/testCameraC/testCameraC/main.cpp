@@ -30,11 +30,8 @@ int main()
 	int nMode;
 	nMode = IS_SET_TRIGGER_SOFTWARE;
 
-<<<<<<< HEAD
+
 	//Sets the trigger mode.
-=======
-	//Sets the trigger mode
->>>>>>> b786bf65c7a5f0c6079f5c87de3d30b2e7c5181f
 	nRet = is_SetExternalTrigger(hCam, nMode);
 	if (nRet != IS_SUCCESS)
 	{
