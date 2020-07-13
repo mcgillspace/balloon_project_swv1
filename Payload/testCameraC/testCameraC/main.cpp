@@ -6,7 +6,7 @@
 #include <uEye_tools.h>
 #include <conio.h>
 #include <tchar.h>
-#include "testCameraC.h"
+#include "cameraLibrary.h"
 
 using namespace std;
 
@@ -29,7 +29,6 @@ int main()
 	//Selecting which mode to run the camera with 
 	int nMode;
 	nMode = IS_SET_TRIGGER_SOFTWARE;
-
 
 	//Sets the trigger mode.
 	nRet = is_SetExternalTrigger(hCam, nMode);

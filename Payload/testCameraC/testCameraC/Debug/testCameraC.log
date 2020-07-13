@@ -1,5 +1,5 @@
-﻿  main.cpp
-c:\users\joebe\desktop\balloon_project_swv1\payload\testcamerac\testcamerac\main.cpp(19): warning C4101: 'msg': unreferenced local variable
-  testCameraC.cpp
+﻿  cameraLibrary.cpp
+  main.cpp
+c:\users\joebe\desktop\balloon_project_swv1\payload\testcamerac\testcamerac\main.cpp(27): warning C4101: 'msg': unreferenced local variable
   Generating Code...
   testCameraC.vcxproj -> C:\Users\joebe\Desktop\balloon_project_swv1\Payload\testCameraC\Debug\testCameraC.exe
