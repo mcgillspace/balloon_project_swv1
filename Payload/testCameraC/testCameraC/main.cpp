@@ -13,6 +13,7 @@ using namespace std;
 int main()
 {
 	//Need to make this inputted by the raspberry Pi 4 
+	
 	wchar_t path[100] = _T("C:\\Users\\joebe\\Desktop\\image.jpg");
 
 	//This is for testing purposes; code will print out statements if it either 
@@ -52,12 +53,9 @@ int main()
 			cout << "Set the camera to trigger mode" << endl;
 		}
 		nRet = captureSingle(hCam,path);
-		if (nRet == 1)
+		if (nRet == 1 && verbose == TRUE)
 		{
-			if (verbose) 
-			{
-				cout << "Program ran successfully" << endl;
-			}
+			cout << "Program ran successfully" << endl;
 		}
 		else
 		{
