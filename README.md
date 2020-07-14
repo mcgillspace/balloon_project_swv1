@@ -3,6 +3,12 @@
 
 Welcome to the software collection for our HAB! 
 
+<p align="center">
+  <img width="250" height="250" src="https://github.com/mcgillspace/balloon_project_swv1/blob/master/Anseris_1_logo.png">
+</p>
+
+
+
 ----- **ABOUT FILES** -----
 
 *camera_sw_structure* contains a preliminary skeleton of the software for the on board camera. We are using the IDS UI-3241LE-M-GL. More details about the camera can be found [here.](https://en.ids-imaging.com/download-details/AB00430.html)
