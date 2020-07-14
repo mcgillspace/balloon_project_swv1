@@ -12,12 +12,6 @@ using namespace std;
 
 int main()
 {
-	//Need to make this inputted by the raspberry Pi 4 
-	
-	wchar_t path[100] = _T("C:\\Users\\joebe\\Desktop\\image.jpg");
-
-	//This is for testing purposes; code will print out statements if it either 
-	//succeeds or fails a task.
 	BOOL verbose = verb();
 	int nRet = 0;
 
@@ -30,7 +24,8 @@ int main()
 		return 0;
 	}
 	
-	
+	MSG msg;
+
 	//Selecting which mode to run the camera with 
 	int nMode;
 	nMode = IS_SET_TRIGGER_SOFTWARE;
@@ -52,10 +47,13 @@ int main()
 		{
 			cout << "Set the camera to trigger mode" << endl;
 		}
-		nRet = captureSingle(hCam,path);
-		if (nRet == 1 && verbose == TRUE)
+		nRet = captureSingle(hCam);
+		if (nRet == 1)
 		{
-			cout << "Program ran successfully" << endl;
+			if (verbose) 
+			{
+				cout << "Program ran successfully" << endl;
+			}
 		}
 		else
 		{
