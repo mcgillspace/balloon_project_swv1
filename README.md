@@ -27,6 +27,6 @@ All of the files found in *Payload/testCameraC/testCameraC/* pertain to the the 
 
 ----- **CONTACT INFORMATION** -----
 
-If you have questions regarding this project, feel free to reach out.
+If you have questions regarding this project, feel free to reach out [on our website.](https://www.mcgillspace.com/#!/contact)
 
 
