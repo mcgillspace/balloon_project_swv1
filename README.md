@@ -5,7 +5,7 @@ Welcome to the software collection for our HAB!
 
 ----- **ABOUT FILES** -----
 
-*camera_sw_structure* contains a preliminary skeleton of the software for the on board camera. We are using the IDS UI-3241LE-M-GL. More details can be found [here.](https://en.ids-imaging.com/download-details/AB00430.html)
+*camera_sw_structure* contains a preliminary skeleton of the software for the on board camera. We are using the IDS UI-3241LE-M-GL. More details about the camera can be found [here.](https://en.ids-imaging.com/download-details/AB00430.html)
 
 All of the files found in *Payload/testCameraC/testCameraC/* pertain to the the function of the IDS camera.
 
@@ -21,8 +21,6 @@ All of the files found in *Payload/testCameraC/testCameraC/* pertain to the the 
 *cameraSettings.h* is where the camera ID is set, as well as other various attributes. This file also contains many useful libraries.
 
 *testCameraC.sln* is the solution file made by Microsoft Visual Studio.
-
-
 
 
 ----- **CONTACT INFORMATION** -----
