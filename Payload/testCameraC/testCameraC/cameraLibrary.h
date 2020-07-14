@@ -8,8 +8,8 @@
 #include <tchar.h>
 
 HIDS initialize(int nRet);
-int captureSingle(HIDS hCam, wchar_t* filename);
-int captureBurst(HIDS hCam, wchar_t* filename, int BurstSize);
+int captureSingle(HIDS hCam, const char *foldername);
+int captureBurst(HIDS hCam, const char *foldername, int BurstSize);
 int captureVideo(HIDS hCam, wchar_t* filename);
 BOOL verb();
 

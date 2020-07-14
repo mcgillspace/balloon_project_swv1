@@ -12,7 +12,7 @@ using namespace std;
 
 int main(int args, char *argv[])
 {
-	wchar_t path[100] = _T("C:\\Users\\joebe\\Desktop\\image.jpg");
+	//wchar_t path[100] = _T("C:\\Users\\joebe\\Desktop\\image.jpg");
 	//The input to the main function is going to be: 1) path folder to save the image in. 
 	//2) mode number (0 being capture a single frame, 1 being capture a burst of frames, 2 being capture a video)
 	//3) burst size
@@ -30,8 +30,6 @@ int main(int args, char *argv[])
 		return 0;
 	}
 	
-	MSG msg;
-
 	//Selecting which mode to run the camera with 
 	int nMode;
 	nMode = IS_SET_TRIGGER_SOFTWARE;
@@ -51,20 +49,22 @@ int main(int args, char *argv[])
 	{
 			cout << "Set the camera to trigger mode" << endl;
 	}
-	
+	const char *foldername="C:\\Users\\joebe\\Desktop";
+
 	int mode = (int) argv[1];
+	mode = 0;
 	if (mode == 0)
 	{
-		nRet = captureSingle(hCam, path);
+		nRet = captureSingle(hCam, foldername);
 	}
 	else if (mode==1)
 	{
-		nRet = captureBurst(hCam, path, (int)argv[2]);
+		nRet = captureBurst(hCam, foldername, (int)argv[2]);
 
 	}
 	else
 	{
-		nRet = captureVideo(hCam,path); //NOT FINISHED YET 
+		//nRet = captureVideo(hCam,path); //NOT FINISHED YET 
 	}
 	
 	return 1;
