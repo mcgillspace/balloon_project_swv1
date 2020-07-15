@@ -18,9 +18,9 @@ All of the files found in *Payload/testCameraC/testCameraC/* pertain to the the 
 *main.cpp* is where the code is run. First, the path name is set and we initialize the camera. If unsuccessful, it terminates. Next, the trigger mode is set, and then the capture mode is chosen. This feature allows for the camera to take one single photo, a burst of photos, or a video.
 
 *cameraLibrary.cpp* contains the bulk of the code necessary to perform the tasks we want. The following is an outline of the functions used in this file:
-* *captureSingle()* takes in the camera ID and the file name. 
+* *captureSingle()* takes in the camera object and the folder name, where an image will be saved. It also has optional arguments for displaying and saving an image after taking a picture.  
 * *captureBurst()* takes in the same inputs as the previous function, as well as the number of photos in the burst.
-* *captureVideo()* 
+* *captureVideo()* takes in the camera object, the folder name and the frame rate. This is will take a video for a hardcoded time for now and will save the video in the specified folder name in an AVI format. 
 
 *cameraLibrary.h* is a header file that includes the functions used in *cameraLibrary.cpp*. 
 
