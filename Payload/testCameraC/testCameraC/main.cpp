@@ -12,7 +12,6 @@ using namespace std;
 
 int main(int args, char *argv[])
 {
-	//wchar_t path[100] = _T("C:\\Users\\joebe\\Desktop\\image.jpg");
 	//The input to the main function is going to be: 1) path folder to save the image in. 
 	//2) mode number (0 being capture a single frame, 1 being capture a burst of frames, 2 being capture a video)
 	//3) burst size
@@ -49,10 +48,13 @@ int main(int args, char *argv[])
 	{
 			cout << "Set the camera to trigger mode" << endl;
 	}
+	//This will be replaced by the SD path in the raspberry Pi. For testing, change 
+	//this to the folder where you want the images and videos to be saved at. 
 	const char *foldername="C:\\Users\\joebe\\Desktop";
 
+	//The mode in which the camera will be activated in. 
 	int mode = (int) argv[1];
-	mode = 0;
+	mode = 1;
 	if (mode == 0)
 	{
 		nRet = captureSingle(hCam, foldername);
