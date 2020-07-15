@@ -11,7 +11,7 @@ Welcome to the software collection for our HAB!
 
 ----- **ABOUT FILES** -----
 
-*camera_sw_structure* contains a preliminary skeleton of the software for the on board camera. We are using the IDS UI-3241LE-M-GL. More details about the camera can be found [here.](https://en.ids-imaging.com/download-details/AB00430.html)
+*camera_sw_structure* contains a preliminary skeleton of the software for the on board camera. We are using the IDS UI-3241LE-M-GL. More details about the camera can be found [here.](https://en.ids-imaging.com/download-details/AB00430.html) We are also using a Raspberry Pi.
 
 All of the files found in *Payload/testCameraC/testCameraC/* pertain to the the function of the IDS camera.
 
@@ -28,6 +28,9 @@ All of the files found in *Payload/testCameraC/testCameraC/* pertain to the the 
 
 *testCameraC.sln* is the solution file made by Microsoft Visual Studio.
 
+*Makefile* will run the files for us when ready.
+
+The files found in *Payload_Linux* are used for the Raspberry Pi.
 
 ----- **CONTACT INFORMATION** -----
 
