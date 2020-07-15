@@ -1,3 +1,2 @@
-﻿  cameraLibrary.cpp
-c:\users\joebe\desktop\balloon_project_swv1\payload\testcamerac\testcamerac\cameralibrary.cpp(232): warning C4101: 'pnAviID': unreferenced local variable
+﻿  main.cpp
   testCameraC.vcxproj -> C:\Users\joebe\Desktop\balloon_project_swv1\Payload\testCameraC\Debug\testCameraC.exe

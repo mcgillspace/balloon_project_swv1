@@ -59,12 +59,12 @@ int main(int args, char *argv[])
 	}
 	else if (mode==1)
 	{
-		nRet = captureBurst(hCam, foldername, (int)argv[2]);
+		nRet = captureBurst(hCam, foldername, 30);
 
 	}
 	else
 	{
-		//nRet = captureVideo(hCam,path); //NOT FINISHED YET 
+		nRet = captureVideo(hCam,foldername,30); //NOT FINISHED YET 
 	}
 	
 	return 1;
