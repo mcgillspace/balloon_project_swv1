@@ -1,8 +1,7 @@
 #include <iostream>
 #include <sstream>
 
-#include "uEye.h"
-#include "uEye_tools.h"
+#include <ueye.h>
 #include <curses.h>
 
 HIDS initialize(int nRet);

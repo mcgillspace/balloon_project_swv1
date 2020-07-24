@@ -1,8 +1,8 @@
 #include <iostream>
 #include <sstream>
 
-#include "uEye.h"
-#include "uEye_tools.h"
+#include <ueye.h>
+
 #include <curses.h>
 #include "cameraLibrary.h"
 
@@ -48,7 +48,7 @@ int main(int args, char *argv[])
 	}
 	//This will be replaced by the SD path in the raspberry Pi. For testing, change 
 	//this to the folder where you want the images and videos to be saved at. 
-	const char *foldername="C:\\Users\\joebe\\Desktop";
+	const char *foldername="/home/alarm/Desktop";
 
 	//The mode in which the camera will be activated in. 
 	int mode = (int) argv[1];
@@ -62,10 +62,10 @@ int main(int args, char *argv[])
 		nRet = captureBurst(hCam, foldername, 30);
 
 	}
-	else
-	{
-		nRet = captureVideo(hCam,foldername,30); //NOT FINISHED YET 
-	}
+	//else
+	//{
+	//	nRet = captureVideo(hCam,foldername,30); //NOT FINISHED YET 
+	//}
 	
 	return 1;
 }
