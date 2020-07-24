@@ -10,7 +10,6 @@ using namespace std;
 
 int main(int args, char *argv[])
 {
-	//The input to the main function is going to be: 1) path folder to save the image in. 
 	//2) mode number (0 being capture a single frame, 1 being capture a burst of frames, 2 being capture a video)
 	//3) burst size
 	
@@ -51,15 +50,15 @@ int main(int args, char *argv[])
 	const char *foldername="/home/alarm/Desktop";
 
 	//The mode in which the camera will be activated in. 
-	int mode = (int) argv[1];
-	mode = 1;
+	int mode = atoi(argv[1]);
+	cout << mode <<endl;
 	if (mode == 0)
 	{
-		nRet = captureSingle(hCam, foldername);
+		nRet = captureSingle(hCam, foldername,TRUE,FALSE,FALSE);
 	}
 	else if (mode==1)
 	{
-		nRet = captureBurst(hCam, foldername, 30);
+		nRet = captureBurst(hCam, foldername, atoi(argv[2]));
 
 	}
 	//else
