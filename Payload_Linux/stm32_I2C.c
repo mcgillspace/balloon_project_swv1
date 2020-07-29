@@ -14,10 +14,17 @@ int main(int argc, char *argv[]){
 	// finding the bus on the raspberry pi
 	int file;
 	char *filename = "/dev/i2c-1";
-	if ((file = open(filename, O_RDWR)) < 0) {
+	if ((file = open(filename, O_WRONLY)) < 0) {
 		perror("Failed to open I2C bus");
 		exit(1);
 	}
+	
+	//Starts up the connection with the raspberry pi
+	if (ioctl(file, I2C_SLAVE, addr) < 0) {
+    		printf("Failed to acquire bus access and/or talk to slave.\n");
+    		exit(1);
+	}
+
 	char buf[10] = {0};
 	buf[0] = addr;
 	if (write(file, buf, 1) != 1){
