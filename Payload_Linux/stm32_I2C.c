@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+
 
 int main(int argc, char *argv[]){
 	// defining address of raspberry pi
@@ -14,13 +18,11 @@ int main(int argc, char *argv[]){
 		perror("Failed to open I2C bus");
 		exit(1);
 	}
-
+	char buf[10] = {0};
 	buf[0] = addr;
 	if (write(file, buf, 1) != 1){
 		// if it fails, give message
 		printf("Failed to write to the I2C bus. \n");
-		buffer = g_strerror(errno);
-		printf(buffer);
 		printf("\n\n");
 	}
 }
