@@ -18,15 +18,21 @@
 int main (int argc, char *argv){
 	// setting up the I2C communication
 	int fd = wiringPiI2CSetup(DEVICE_ID);
-
+	
 	// if the set up does not work, give message
 	if fd == (-1){
 		std::cout << "Failed to init I2C communication. \n";
 		return -1;
 	}
 	std::cout << "I2C communication successful. \n";
+	std::cout << "Init result: " << fd << endl;
 
 	// writing to a register
 	// the 4th bit of an 8 bit register
-	wiringPiI2CWriteReg8(fd, REG_POWER_CTL, 0b00001000);
+	int result = wiringPiI2CWriteReg8(fd, REG_POWER_CTL, 0b00001000);
+
+	// if that did not work
+	if (result == -1){
+		cout << "Error with writing to register.";
+	}
 }
