@@ -11,9 +11,4 @@ updates to support newer hardware (primarily for use by the ports).
   * The default `master` branch contains code that has been written since that final source
     release to provide support for newer hardware.
 
-Please do not email Gordon if you have issues, he will not be able to help.
-
-Pull-requests may be accepted to add or fix support for newer hardware, but new features or
-other changes will not be accepted.
-
-For support, comments, questions, etc please join the WiringPi Discord channel: https://discord.gg/SM4WUVG
+The code was fetched from [this github](https://github.com/WiringPi/WiringPi).
