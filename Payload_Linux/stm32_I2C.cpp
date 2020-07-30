@@ -35,4 +35,7 @@ int main (int argc, char *argv[]){
 	if (result == -1){
 		cout << "Error with writing to register.";
 	}
+	
+	return 0;
+
 }
