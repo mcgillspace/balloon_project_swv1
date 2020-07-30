@@ -15,7 +15,7 @@
 #define REG_DATA_Z_LOW  0x36
 #define REG_DATA_Z_HIGH 0x37
 
-int main (int argc, char *argv){
+int main (int argc, char *argv[]){
 	// setting up the I2C communication
 	int fd = wiringPiI2CSetup(DEVICE_ID);
 	
