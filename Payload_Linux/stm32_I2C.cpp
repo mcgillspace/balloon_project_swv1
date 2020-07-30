@@ -15,25 +15,30 @@
 #define REG_DATA_Z_LOW  0x36
 #define REG_DATA_Z_HIGH 0x37
 
+int VERBOSE = 1;
+
 int main (int argc, char *argv[]){
 	// setting up the I2C communication
 	int fd = wiringPiI2CSetup(DEVICE_ID);
 	
 	// if the set up does not work, give message
-	if fd == (-1){
-		std::cout << "Failed to init I2C communication. \n";
+	if (fd == (-1)){
+		if (VERBOSE){
+			std::cout << "Failed to init I2C communication. \n";
+		}
 		return -1;
 	}
-	std::cout << "I2C communication successful. \n";
-	std::cout << "Init result: " << fd << endl;
-
+	if (VERBOSE){
+		std::cout << "I2C communication successful. \n";
+		std::cout << "Init result: " << fd << std::endl;
+	}
 	// writing to a register
 	// the 4th bit of an 8 bit register
 	int result = wiringPiI2CWriteReg8(fd, REG_POWER_CTL, 0b00001000);
 
 	// if that did not work
-	if (result == -1){
-		cout << "Error with writing to register.";
+	if (result == -1 && VERBOSE){
+		std::cout << "Error with writing to register."<< std::endl;
 	}
 	
 	return 0;
