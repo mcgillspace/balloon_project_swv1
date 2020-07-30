@@ -9,13 +9,14 @@
 
 echo $PATH | grep -q "/opt/vc/bin"
 
-if [ $? -eq 0 ];
+if [ $? -eq 1 ];
 then 
 	PATH=$PATH:/opt/vc/bin
 	export PATH
 else
 	export PATH
 fi 
+DATE=$(date +"%H_%M_%S")
 
-raspistill -vf -hf -t 0 -sa 100
+raspistill -vf -hf -sa 100 -md 1 -o /home/alarm/Desktop/ImagePi_$DATE.jpg
 
