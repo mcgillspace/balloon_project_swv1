@@ -166,7 +166,7 @@ int captureBurst(HIDS hCam, const char *foldername, int BurstSize)
 	tm *timeinfo = timeAndDate();
 
 	//Naming the folder in which the burst images are going to be located
-	strftime(time_string, 80, "/Burst_%I_%M_%S", timeinfo);
+	strftime(time_string, 80, "/IDS_camera/Burst_%I_%M_%S", timeinfo);
 
 	const char *folderName = (const char*)time_string;
 

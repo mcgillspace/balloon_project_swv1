@@ -18,5 +18,10 @@ else
 fi 
 DATE=$(date +"%H_%M_%S")
 
-raspistill -vf -hf -sa 100 -md 1 -o /home/alarm/Desktop/ImagePi_$DATE.jpg
+if [ ! -d "/home/alarm/Desktop/Raspb_camera" ]
+then 
+	mkdir /home/alarm/Desktop/Raspb_camera
+fi
+
+raspistill -vf -hf -sa 100 -md 1 -o /home/alarm/Desktop/Raspb_camera/ImagePi_$DATE.jpg
 

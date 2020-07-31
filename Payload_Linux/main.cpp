@@ -23,7 +23,8 @@ int main(int args, char *argv[])
 	//Catches the case if the camera initialization has failed 
 	if (hCam == NULL)
 	{
-		return 0;
+		exit(1);
+		return 1;
 	}
 	
 	//Selecting which mode to run the camera with 
@@ -39,7 +40,8 @@ int main(int args, char *argv[])
 			cout << "Camera has failed to switch to trigger mode" << endl << endl;
 			cout << "Terminating Program..." << endl;
 		}
-		return 0;
+		exit(1);
+		return 1;
 	}
 	if (verbose) 
 	{
@@ -66,5 +68,5 @@ int main(int args, char *argv[])
 	//	nRet = captureVideo(hCam,foldername,30); //NOT FINISHED YET 
 	//}
 	
-	return 1;
+	return 0;
 }
