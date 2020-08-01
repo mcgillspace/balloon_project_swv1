@@ -9,7 +9,7 @@
 
 echo $PATH | grep -q "/opt/vc/bin"
 
-if [ $? -eq 1 ];
+if [ $? -eq 1 ]
 then 
 	PATH=$PATH:/opt/vc/bin
 	export PATH
