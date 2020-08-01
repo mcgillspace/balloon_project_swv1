@@ -3,7 +3,7 @@
 OpenLST is an open source, proven radio design for communicating with remote
 instruments, vehicles, and stations using low-cost commercial components.
 
-Please find the original README and scripts [here](https://www.planet.com/open/openlst.git)
+Please find the original README and scripts [here.](https://github.com/OpenLST/openlst)
 
 ## Disclaimers
 
