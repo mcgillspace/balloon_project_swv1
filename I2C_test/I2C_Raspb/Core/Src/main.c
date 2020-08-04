@@ -110,10 +110,11 @@ int main(void)
   {
     /* USER CODE END WHILE */
     MX_USB_HOST_Process();
-
-
+    if (HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 9, 1, 10000) != HAL_OK)
+    {
+        asm("bkpt 255");
+    }
     /* USER CODE BEGIN 3 */
-
   }
   /* USER CODE END 3 */
 }
@@ -187,7 +188,7 @@ static void MX_I2C1_Init(void)
   hi2c1.Instance = I2C1;
   hi2c1.Init.ClockSpeed = 100000;
   hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c1.Init.OwnAddress1 = 0x8;
+  hi2c1.Init.OwnAddress1 = 16;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c1.Init.OwnAddress2 = 0;

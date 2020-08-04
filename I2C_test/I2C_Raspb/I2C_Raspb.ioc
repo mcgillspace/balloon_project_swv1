@@ -1,8 +1,10 @@
 #MicroXplorer Configuration settings - do not modify
 File.Version=6
+I2C1.AddressingMode=I2C_ADDRESSINGMODE_7BIT
 I2C1.GeneralCallMode=I2C_GENERALCALL_ENABLE
-I2C1.IPParameters=NoStretchMode,GeneralCallMode
+I2C1.IPParameters=NoStretchMode,GeneralCallMode,OwnAddress,AddressingMode
 I2C1.NoStretchMode=I2C_NOSTRETCH_ENABLE
+I2C1.OwnAddress=0x8
 I2S3.AudioFreq-Half_Duplex_Master=I2S_AUDIOFREQ_96K
 I2S3.ErrorAudioFreq=-2.34 %
 I2S3.ErrorAudioFreq-Half_Duplex_Master=0.8 %

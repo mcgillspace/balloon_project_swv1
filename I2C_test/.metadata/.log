@@ -75,3 +75,96 @@ Remote communication error.  Target disconnected.: No error.
 java.lang.Exception: Remote communication error.  Target disconnected.: No error.
 	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:941)
 	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:770)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 104 2020-08-03 23:03:13.871
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: C:\Users\joebe\Desktop\balloon_project_swv1\I2C_test\I2C_Raspb\Debug\I2C_Raspb.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:126)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:292)
+	at fr.ac6.mcu.debug.launching.MCUGDBJtagDSFLaunchConfigurationDelegate.launchDebugSession(MCUGDBJtagDSFLaunchConfigurationDelegate.java:205)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:101)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:90)
+	at fr.ac6.mcu.debug.launching.MCUGDBJtagDSFLaunchConfigurationDelegate.launch(MCUGDBJtagDSFLaunchConfigurationDelegate.java:319)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 104 2020-08-03 23:03:13.872
+!MESSAGE C:\Users\joebe\Desktop\balloon_project_swv1\I2C_test\I2C_Raspb\Debug\I2C_Raspb.elf not found
+!STACK 0
+java.io.FileNotFoundException: C:\Users\joebe\Desktop\balloon_project_swv1\I2C_test\I2C_Raspb\Debug\I2C_Raspb.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:126)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:292)
+	at fr.ac6.mcu.debug.launching.MCUGDBJtagDSFLaunchConfigurationDelegate.launchDebugSession(MCUGDBJtagDSFLaunchConfigurationDelegate.java:205)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:101)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:90)
+	at fr.ac6.mcu.debug.launching.MCUGDBJtagDSFLaunchConfigurationDelegate.launch(MCUGDBJtagDSFLaunchConfigurationDelegate.java:319)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 104 2020-08-03 23:05:13.604
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: C:\Users\joebe\Desktop\balloon_project_swv1\I2C_test\I2C_Raspb\Debug\I2C_Raspb.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:126)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:292)
+	at fr.ac6.mcu.debug.launching.MCUGDBJtagDSFLaunchConfigurationDelegate.launchDebugSession(MCUGDBJtagDSFLaunchConfigurationDelegate.java:205)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:101)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:90)
+	at fr.ac6.mcu.debug.launching.MCUGDBJtagDSFLaunchConfigurationDelegate.launch(MCUGDBJtagDSFLaunchConfigurationDelegate.java:319)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 104 2020-08-03 23:05:13.606
+!MESSAGE C:\Users\joebe\Desktop\balloon_project_swv1\I2C_test\I2C_Raspb\Debug\I2C_Raspb.elf not found
+!STACK 0
+java.io.FileNotFoundException: C:\Users\joebe\Desktop\balloon_project_swv1\I2C_test\I2C_Raspb\Debug\I2C_Raspb.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:126)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:292)
+	at fr.ac6.mcu.debug.launching.MCUGDBJtagDSFLaunchConfigurationDelegate.launchDebugSession(MCUGDBJtagDSFLaunchConfigurationDelegate.java:205)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:101)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:90)
+	at fr.ac6.mcu.debug.launching.MCUGDBJtagDSFLaunchConfigurationDelegate.launch(MCUGDBJtagDSFLaunchConfigurationDelegate.java:319)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 104 2020-08-03 23:08:27.416
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: C:\Users\joebe\Desktop\balloon_project_swv1\I2C_test\I2C_Raspb\Debug\I2C_Raspb.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:126)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:292)
+	at fr.ac6.mcu.debug.launching.MCUGDBJtagDSFLaunchConfigurationDelegate.launchDebugSession(MCUGDBJtagDSFLaunchConfigurationDelegate.java:205)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:101)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:90)
+	at fr.ac6.mcu.debug.launching.MCUGDBJtagDSFLaunchConfigurationDelegate.launch(MCUGDBJtagDSFLaunchConfigurationDelegate.java:319)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 104 2020-08-03 23:08:27.416
+!MESSAGE C:\Users\joebe\Desktop\balloon_project_swv1\I2C_test\I2C_Raspb\Debug\I2C_Raspb.elf not found
+!STACK 0
+java.io.FileNotFoundException: C:\Users\joebe\Desktop\balloon_project_swv1\I2C_test\I2C_Raspb\Debug\I2C_Raspb.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:126)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:292)
+	at fr.ac6.mcu.debug.launching.MCUGDBJtagDSFLaunchConfigurationDelegate.launchDebugSession(MCUGDBJtagDSFLaunchConfigurationDelegate.java:205)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:101)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:90)
+	at fr.ac6.mcu.debug.launching.MCUGDBJtagDSFLaunchConfigurationDelegate.launch(MCUGDBJtagDSFLaunchConfigurationDelegate.java:319)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
