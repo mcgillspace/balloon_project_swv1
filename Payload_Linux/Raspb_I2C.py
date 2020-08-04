@@ -22,7 +22,6 @@ class Raspb_I2C :
       val |= (d << (8 * (byteCount - i - 1)))
       data >>= 8
     return val
-
   def write8(self, reg, value):
     "Writes an 8-bit value to the specified register/address"
     try:
