@@ -32,6 +32,7 @@ then
 fi 
 
 #The ./main script controls the IDS camera while ./cameraRasp controls the raspberry Camera
+#If input is 1, we take a picture with the IDS camera
 if [ $1 -eq 1 ] 
 then 
 	./main 1 $2
@@ -40,18 +41,19 @@ then
 		USBcheck
 		./main 1 $2
 	fi
+#If it is 2, we take a picture with the pi camera
 elif [ $1 -eq 2 ] 
 then 
+	./cameraRasp.sh
+#If it is 3, take a picture with both cameras
+else 
 	./main 1 $2
 	if [ $? -eq 1 ]
 	then 
 		USBcheck
 		./main 1 $2
 	fi 
-	./cameraRasp.sh
-else 
-	echo "Inputs are invalid, try again"
-	exit 3
+	./cameraRasp.sh $2
 fi 
 
 #does a cleanup of the folder after this script has been executed
