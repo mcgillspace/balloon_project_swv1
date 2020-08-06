@@ -23,5 +23,8 @@ then
 	mkdir /home/alarm/Desktop/Raspb_camera
 fi
 
-raspistill -vf -hf -sa 100 -md 1 -o /home/alarm/Desktop/Raspb_camera/ImagePi_$DATE.jpg
-
+for (( c=0; c<$1; c++ ))
+do 
+	raspistill -vf -hf -sa 100 -md 1 -o /home/alarm/Desktop/Raspb_camera/ImagePi_$DATE.jpg
+	sleep 1s
+done
