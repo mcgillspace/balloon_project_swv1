@@ -1,5 +1,7 @@
 import numpy as np
 from scipy.integrate import odeint
+import matplotlib.pyplot as plt
+
 
 """
 The ODE we want to solve has the following form:
@@ -30,9 +32,13 @@ V = (4/3*np.pi*r**3)
 p_He=0.178     #kg/m^3
 #density of air:
 p_atm=1.2 #kg/m^3
+#Reynold's constant
+c_d=1
+#Area of balloon
+S=5
 
 
-def dU_dx(U,x):
+def dU_dx(U,z):
 	"""
 	Function that takes a derivative of the vector U=[y,z]. Therefore, it should return [y',z']
 	"""
@@ -40,6 +46,8 @@ def dU_dx(U,x):
 
 #Initial condition
 U0=[0,0]
-ts = [0,10,200]
+ts = np.linspace(0,20,200)
 Us = odeint(dU_dx,U0,ts)
-ys = Us[;,0]
+ys = Us[:,1]
+plt.plot(ts,ys)
+plt.show()
