@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "usb_host.h"
+#include <unistd.h>
 
 
 /* Private variables ---------------------------------------------------------*/
@@ -57,16 +58,41 @@ int main(void)
   MX_I2S3_Init();
   MX_SPI1_Init();
   MX_USB_HOST_Init();
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
     MX_USB_HOST_Process();
-    if (HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 9, 1, 10000) != HAL_OK)
+    //wait for 5 min
+    sleep(300);
+    if (HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 0, 1, 10000) != HAL_OK)
     {
-        asm("bkpt 255");
+    	HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 9, 1, 10000)
     }
+	sleep(20);
+	if (HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 1, 1, 10000) != HAL_OK)
+	{
+	    HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 9, 1, 10000)
+	}
+	sleep(20);
+	if (HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 2, 1, 10000) != HAL_OK)
+		{
+		    HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 9, 1, 10000)
+		}
+	sleep(40);
+	//STM32 stuffs:
+	//1) yo bitch hold up a bit (figure out timing) (done)
+	//2) what we sending in this bitch-ass hoe (done)
+	//3) how we handlin when dis cuntbucket fails (for now reboot)
+	//4) 0: IDS, 1: Raspberry cam 2: both (done)
+	//5) timing: 5min, 0 -> 20 , 1 -> 20, 2->40, burst size, 15 for both. (done)
+	//Raspberry pi stuffs:
+	//4) bit pair, how da fck? (dane kinda off) what to put in the stupid bits: two variables, one long long (temp or any other fcking shit),
+	//   and one bit
+	//5) sending da pair (need to look at bit seperation or wtv it is called)
+	//6) low power mode between snapshots
+
   }
 }
 
