@@ -47,6 +47,10 @@ def dU_dx(U,z):
 #Initial condition
 U0=[0,0]
 ts = np.linspace(0,1,200)
+
+#Initial condition
+U0=[0,0]
+ts = np.linspace(0,20,200)
 Us = odeint(dU_dx,U0,ts)
 ys = Us[:,1]
 plt.plot(ts,ys)
