@@ -9,14 +9,14 @@ i2c = busio.I2C(board.SCL, board.SDA)
 bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
  
 # --------- User Settings ---------
-SENSOR_LOCATION_NAME = "Office"
+SENSOR_LOCATION_NAME = "ANSERIS-I"
 BUCKET_NAME = ":partly_sunny: Room Temperature"
 BUCKET_KEY = "temp1"
 ACCESS_KEY = "YOUR ACCESS KEY HERE"
-# change this to match the location's pressure (hPa) at sea level
+# change this to match the launch location's pressure (hPa) at sea level
 bme280.sea_level_pressure = 1013.25
-MINUTES_BETWEEN_READS = 10
-METRIC_UNITS = False
+MINUTES_BETWEEN_READS = 5
+METRIC_UNITS = True
 # ---------------------------------
 
 # OR create library object using our Bus SPI port
