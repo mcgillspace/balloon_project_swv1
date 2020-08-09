@@ -1,9 +1,3 @@
-all: stm32_I2C main
-
-stm32_I2C: stm32_I2C.cpp
-	@g++ -o stm32_I2C stm32_I2C.cpp -lwiringPi
-
-
 main: IDS_Code/cameraLibrary.o IDS_Code/main.o
 	@g++ -o main IDS_Code/main.o IDS_Code/cameraLibrary.o -lueye_api
 

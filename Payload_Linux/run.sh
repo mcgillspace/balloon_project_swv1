@@ -60,4 +60,3 @@ fi
 sudo rm -r main
 sudo rm -r IDS_Code/main.o
 sudo rm -r IDS_Code/cameraLibrary.o
-sudo rm -r stm32_I2C
