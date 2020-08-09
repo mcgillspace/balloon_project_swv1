@@ -16,15 +16,21 @@ then
 else
 	export PATH
 fi 
-DATE=$(date +"%H_%M_%S")
 
+#Checks whether the folder in which images are going to saved is present or not.
+#If it isnt, create this folder and name it Rasp_camera
 if [ ! -d "/home/alarm/Desktop/Raspb_camera" ]
 then 
 	mkdir /home/alarm/Desktop/Raspb_camera
 fi
 
-for (( c=0; c<$1; c++ ))
+#Take a burts of size equal to the first argument when running this script. The interval between images 
+#is 1 second and it timestamps the images based on the time of acquisition
+cond="0"
+while [[ "$cond" -lt "$1" ]]
 do 
-	raspistill -vf -hf -sa 100 -md 1 -o /home/alarm/Desktop/Raspb_camera/ImagePi_$DATE.jpg
+	DATE=$(date +"%H_%M_%S")
+	raspistill -vf -hf -sa 100 -md 1 -o /home/alarm/Desktop/Raspb_camera/ImagePi_$DATE.jpg --nopreview --timeout 1
 	sleep 1s
+	cond=$(($cond+1))
 done
