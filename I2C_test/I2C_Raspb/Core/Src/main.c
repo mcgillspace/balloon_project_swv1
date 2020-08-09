@@ -20,7 +20,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "usb_host.h"
-#include <unistd.h>
 
 
 /* Private variables ---------------------------------------------------------*/
@@ -40,6 +39,12 @@ void MX_USB_HOST_Process(void);
   * @brief  The application entry point.
   * @retval int
   */
+
+void sleep(int seconds)
+{
+	HAL_Delay(seconds*1000);
+}
+
 int main(void)
 {
 
@@ -58,27 +63,32 @@ int main(void)
   MX_I2S3_Init();
   MX_SPI1_Init();
   MX_USB_HOST_Init();
+
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
     MX_USB_HOST_Process();
     //wait for 5 min
-    sleep(300);
-    if (HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 0, 1, 10000) != HAL_OK)
+    sleep(20);
+    uint8_t IDSAlone = 0;
+    uint8_t ErrorBuffer = 9;
+    uint8_t PIAlone = 1;
+    uint8_t IDS_PI = 2;
+    if (HAL_I2C_Slave_Transmit(&hi2c1, &IDSAlone, 1, 10000) != HAL_OK)
     {
-    	HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 9, 1, 10000)
+    	HAL_I2C_Slave_Transmit(&hi2c1, &ErrorBuffer, 1, 10000);
     }
 	sleep(20);
-	if (HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 1, 1, 10000) != HAL_OK)
+	if (HAL_I2C_Slave_Transmit(&hi2c1, &PIAlone, 1, 10000) != HAL_OK)
 	{
-	    HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 9, 1, 10000)
+	    HAL_I2C_Slave_Transmit(&hi2c1, &ErrorBuffer, 1, 10000);
 	}
 	sleep(20);
-	if (HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 2, 1, 10000) != HAL_OK)
+	if (HAL_I2C_Slave_Transmit(&hi2c1, &IDS_PI, 1, 10000) != HAL_OK)
 		{
-		    HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t *) 9, 1, 10000)
+		    HAL_I2C_Slave_Transmit(&hi2c1, &ErrorBuffer, 1, 10000);
 		}
 	sleep(40);
 	//STM32 stuffs:
