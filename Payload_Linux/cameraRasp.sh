@@ -4,7 +4,7 @@
 #raspistill command that is located in /opt/vc/bin. DO NOT 
 #PLAY WITH THE CONFIG.TXT FILE AS SUGGESTED ONLINE, THERE IS NO NEED. 
 
-#checks whether the camera modules command have been loaded in 
+#Checks whether the camera modules command have been loaded in 
 #the PATH variable or not
 
 echo $PATH | grep -q "/opt/vc/bin"

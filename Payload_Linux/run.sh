@@ -31,7 +31,7 @@ then
 	mkdir /home/alarm/Desktop/IDS_camera
 fi 
 
-#The ./main script controls the IDS camera while ./cameraRasp controls the raspberry Camera
+#The main script controls the IDS camera while ./cameraRasp controls the raspberry Camera
 #If input is 1, we take a picture with the IDS camera
 if [ $1 -eq 1 ] 
 then 
