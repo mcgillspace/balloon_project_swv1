@@ -1,6 +1,6 @@
-23:25:45 **** Incremental Build of configuration Debug for project I2C_Raspb ****
+20:14:55 **** Incremental Build of configuration Debug for project I2C_Raspb ****
 make -j8 all 
 make: Nothing to be done for 'all'.
 
-23:25:46 Build Finished (took 671ms)
+20:14:56 Build Finished (took 714ms)
 
