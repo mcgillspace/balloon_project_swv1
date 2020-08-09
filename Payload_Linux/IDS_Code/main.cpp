@@ -21,7 +21,7 @@ int main(int args, char *argv[])
 	HIDS hCam = initialize(nRet);
 
 	//Catches the case if the camera initialization has failed 
-	if (hCam == NULL)
+	if (hCam == 0)
 	{
 		exit(1);
 		return 1;

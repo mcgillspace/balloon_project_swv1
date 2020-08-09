@@ -216,106 +216,6 @@ int captureBurst(HIDS hCam, const char *foldername, int BurstSize)
 	return 1;
 }
 
-//int captureVideo(HIDS hCam, const char *foldername, double frameRate)
-//Need to use AVI tools for this
-//{
-//	DisplayWidth = 1280;
-//	DisplayHeight = 960;
-//
-//	int nRet = 0;
-//	INT pnAviID = 0;
-//
-//	//Initializing the AVI engine
-//	nRet = isavi_InitAVI(&pnAviID, hCam);
-//	if (nRet == IS_AVI_NO_ERR && verbose==TRUE)
-//	{
-//		cout << "Initialized AVI file" << endl;
-//	}
-//
-//	//Setting the image size
-//	nRet = isavi_SetImageSize(pnAviID, IS_AVI_CM_Y8, DisplayWidth, DisplayHeight, 0, 0, 0);
-//	
-//	char time_string[80];
-//	//Gets the current time as a tm object
-//	tm *timeinfo = timeAndDate();
-//
-//	//Naming the image file or video file
-//	strftime(time_string, 80, "\\Video_%I_%M_%S.avi", timeinfo);
-//	const char *filename = (const char*)time_string;
-//
-//	//Appending the filename to the foldername 
-//	std::string fullPath = foldername;
-//	fullPath += filename;
-//	const char *fullPathForReal = fullPath.c_str();
-//
-//	//Setting an AVI file
-//	nRet = isavi_OpenAVI(pnAviID, fullPathForReal);
-//
-//	//Setting the frames per second
-//	nRet = isavi_SetFrameRate(pnAviID, frameRate);
-//
-//	//Starting the recording of the camera
-//	nRet = isavi_StartAVI(pnAviID);
-//
-//	//Checking if procedure is working so far or not
-//	if (nRet == IS_AVI_NO_ERR)
-//	{
-//		if (verbose == TRUE)
-//		{
-//			cout << "Camera Starting recording!" << endl;
-//		}
-//	}
-//	else if (nRet == IS_AVI_ERR_INVALID_FILE) 
-//	{
-//		if (verbose == TRUE)
-//		{
-//			cout << "Camera recording failed" << endl;
-//			cout << "Terminating program..." << endl;
-//		}
-//		return 1;
-//	}
-//	
-//	cout << "Camera is recoding live! I will stop when S is pressed" << endl;
-//	cout << "Capturing frames" << endl;
-//	while (1)
-//	{
-//		//Captures an image using captureSingle() and adds it as a frame in the avi file
-//		captureSingle(hCam, NULL, FALSE, FALSE, TRUE);
-//		nRet = isavi_AddFrame(pnAviID, pcImageMemory);
-//		//Releases the image memory 
-//		nRet = is_FreeImageMem(hCam, pcImageMemory, nMemoryId);
-//		
-//		//This will be replaced later on when implemented in the raspberry pi
-//		if (_kbhit())
-//		{
-//			//If the User presses enter, the mode will be switched to software trigger mode 
-//			int key = _getch();
-//			if ((key == 'S'))
-//			{
-//				break;
-//			}
-//
-//		}
-//		PeekMessage(&msg, NULL, 0, 0, PM_REMOVE);
-//		DispatchMessage(&msg);
-//	}
-//
-//	//Closing the file
-//	nRet = isavi_StopAVI(pnAviID);
-//	nRet = isavi_CloseAVI(pnAviID);
-//	nRet = isavi_ExitAVI(pnAviID);
-//	if (nRet == IS_AVI_NO_ERR && verbose == TRUE)
-//	{
-//		cout << "Camera stopped the recording" << endl;
-//	}
-//	
-//	// Disables the hCam camera handle and releases the data structures and memory areas taken up by the uEye camera
-//	nRet = is_ExitCamera(hCam);
-//	
-//	return 0;
-//}
-//
-
 //Helper method to initialize the camera. If connection is successful it returns the hCam object. Else 
 //if it fails, it returns NULL
 
@@ -329,7 +229,7 @@ HIDS initialize(int nRet) {
 			cout << "ERROR, something is wrong with the USB connection of the camera" << endl;
 			cout << "Terminating program..." << endl << endl;
 		}
-		return NULL;
+		return 0;
 
 	}
 	else
