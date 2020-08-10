@@ -29,6 +29,7 @@
 #include "ax25.h"
 #include "time_manager.h"
 #include "tx_manager.h"
+#include "rasp_manager.h"
 
 
 /* Private includes ----------------------------------------------------------*/
@@ -83,7 +84,6 @@ static void MX_I2C1_Init(void);
 static void MX_SPI2_Init(void);
 static void MX_DMA_Init(void);
 static void MX_USART3_UART_Init(void);
-void comms_init();
 void Error_Handler(void);
 
 
@@ -136,7 +136,7 @@ int main(void) {
   init_gps(hab_time.utc, &gps_state);
 
   comms_init();
-
+  cam_init();
   //char c[7] = {'a','s','f','g','f','w','\n'};
   /* USER CODE BEGIN 2 */
 

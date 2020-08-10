@@ -12,6 +12,16 @@
 
 extern I2C_HandleTypeDef hi2c1;
 
+uint8_t IDSAlone = 0;
+uint8_t ErrorBuffer = 9;
+uint8_t PIAlone = 1;
+uint8_t IDS_PI = 2;
+
+int IDS_wait = IDS_WAIT;
+int	PI_wait = PI_WAIT;
+int DUO_wait = DUO_WAIT;
+int CYCLE_wait = CYCLE_RESET_WAIT;
+
 void cam_init(){
 	camTick0 = HAL_GetTick();
 	IDS_flag=0;

@@ -13,15 +13,6 @@
 #define DUO_WAIT 60000;
 #define CYCLE_RESET_WAIT 100000;
 
-uint8_t IDSAlone =0 ;
-uint8_t ErrorBuffer = 9;
-uint8_t PIAlone = 1;
-uint8_t IDS_PI = 2;
-
-int IDS_wait = IDS_WAIT;
-int	PI_wait = PI_WAIT;
-int DUO_wait = DUO_WAIT;
-int CYCLE_wait = CYCLE_RESET_WAIT;
 
 uint8_t IDS_flag;
 uint8_t PI_flag;
