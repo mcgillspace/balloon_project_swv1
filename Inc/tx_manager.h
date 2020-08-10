@@ -23,12 +23,21 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+
+#define MAX_PKT_LEN         210 /*ECSS_HEADER_SIZE + ECSS_DATA_HEADER_SIZE + MAX_PKT_DATA + ECSS_CRC_SIZE*/
+
+#define MAX_PKT_DATA        198
+#define TC_MAX_PKT_SIZE     210
+#define TC_MIN_PKT_SIZE     11 //12  /*ECSS_HEADER_SIZE + ECSS_DATA_HEADER_SIZE + ECSS_CRC_SIZE*/
+
+#define MAX_PKT_EXT_DATA    2051
+#define TC_MAX_PKT_EXT_SIZE 2063
+
 int32_t
 tx_data(const uint8_t *in, size_t len, uint8_t *dev_rx_buffer, uint8_t is_wod,
 	size_t timeout_ms);
 
 
-int32_t
-tx_data_cw (const uint8_t *in, size_t len);
+void comms_init();
 
 #endif /* INC_TX_MANAGER_H_ */

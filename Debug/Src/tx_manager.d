@@ -37,6 +37,8 @@ Src/tx_manager.o: ../Src/tx_manager.c \
  C:/Users/david/OneDrive/Documents/MSG/Ballooooon/Arduino\ Testing/GPS\ UART/STM/GPS/Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_uart.h \
  C:/Users/david/OneDrive/Documents/MSG/Ballooooon/Arduino\ Testing/GPS\ UART/STM/GPS/Inc/cc_definitions.h \
  C:/Users/david/OneDrive/Documents/MSG/Ballooooon/Arduino\ Testing/GPS\ UART/STM/GPS/Inc/cc_commands.h \
+ C:/Users/david/OneDrive/Documents/MSG/Ballooooon/Arduino\ Testing/GPS\ UART/STM/GPS/Inc/cc_tx_init.h \
+ C:/Users/david/OneDrive/Documents/MSG/Ballooooon/Arduino\ Testing/GPS\ UART/STM/GPS/Inc/cc112x_spi.h \
  C:/Users/david/OneDrive/Documents/MSG/Ballooooon/Arduino\ Testing/GPS\ UART/STM/GPS/Inc/status.h
 
 C:/Users/david/OneDrive/Documents/MSG/Ballooooon/Arduino\ Testing/GPS\ UART/STM/GPS/Inc/tx_manager.h:
@@ -114,5 +116,9 @@ C:/Users/david/OneDrive/Documents/MSG/Ballooooon/Arduino\ Testing/GPS\ UART/STM/
 C:/Users/david/OneDrive/Documents/MSG/Ballooooon/Arduino\ Testing/GPS\ UART/STM/GPS/Inc/cc_definitions.h:
 
 C:/Users/david/OneDrive/Documents/MSG/Ballooooon/Arduino\ Testing/GPS\ UART/STM/GPS/Inc/cc_commands.h:
+
+C:/Users/david/OneDrive/Documents/MSG/Ballooooon/Arduino\ Testing/GPS\ UART/STM/GPS/Inc/cc_tx_init.h:
+
+C:/Users/david/OneDrive/Documents/MSG/Ballooooon/Arduino\ Testing/GPS\ UART/STM/GPS/Inc/cc112x_spi.h:
 
 C:/Users/david/OneDrive/Documents/MSG/Ballooooon/Arduino\ Testing/GPS\ UART/STM/GPS/Inc/status.h:
