@@ -169,7 +169,8 @@ void image_tiles_destroy(MagickWand ***wands, const unsigned int divs){
 }
 
 
-
+//Given a wand (in this case, a tile from an image), this function will get the BLOB 
+//databse of such tile
 unsigned char *image_get_blob(MagickWand *wand, size_t *data_size){
     unsigned char *blob;
 

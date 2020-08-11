@@ -59,8 +59,8 @@ wchar_t* pathParsing(const char * foldername)
 
 int captureSingle(HIDS hCam, const char *foldername=NULL,bool saveMode=TRUE,bool displayMode=TRUE, bool videoMode=FALSE)
 {
-	DisplayWidth = 1280;
-	DisplayHeight = 960;
+	DisplayWidth = WIDTH;
+	DisplayHeight = HEIGHT;
 	
 	int nRet = 0;
 
@@ -94,28 +94,10 @@ int captureSingle(HIDS hCam, const char *foldername=NULL,bool saveMode=TRUE,bool
 	///*/
 
 
-	int nColorMode;
-	int nBitsPerPixel;
-
-	//I put all the options for generalization. The camera used in our purposes is MONOCHROME
-	if (sInfo.nColorMode == IS_COLORMODE_BAYER)
-	{
-		// for color camera models use RGB24 mode
-		nColorMode = IS_CM_BGR8_PACKED;
-		nBitsPerPixel = 24;
-	}
-	else if (sInfo.nColorMode == IS_COLORMODE_CBYCRY)
-	{
-		// for CBYCRY camera models use RGB32 mode
-		nColorMode = IS_CM_BGRA8_PACKED;
-		nBitsPerPixel = 32;
-	}
-	else
-	{
-		// for monochrome camera models use Y8 mode
-		nColorMode = IS_CM_MONO8;
-		nBitsPerPixel = 8;
-	}
+	// for monochrome camera models use Y8 mode
+	int nColorMode = IS_CM_MONO8;
+	int nBitsPerPixel = NBITS;
+	
 	// Sets the color mode to be used when image data are saved or displayed by the graphics card
 	is_SetColorMode(hCam, nColorMode);
 
