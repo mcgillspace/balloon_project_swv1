@@ -87,7 +87,7 @@ static int transfer_tiles(MagickWand **wands, const config_t *config){
 				}
 				do {
 					usleep(STM_BLOCK_USLEEP);
-					packet = stm_packet(&block);
+					packet = i2c_stm_packet(&block);
 					if (i2c_transfer(fd, packet.buf, (uint32_t) packet.size) == -1)
 						return -1;
 					resp = packet.buf[0];
