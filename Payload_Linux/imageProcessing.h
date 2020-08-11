@@ -1,3 +1,7 @@
+
+#ifndef __IMAGEPROCESSING_H
+#define __IMAGEPROCESSING_H
+
 type struct image_read_params_t {
 	size_t width;
 	size_t height;
@@ -16,4 +20,5 @@ MagickWand ***image_tiles(MagickWand *wand, const unsigned int divs);
 void image_tiles_destroy(MagickWand ***wands, const unsigned int divs);
 unsigned char *image_get_blob(MagickWand *wand, size_t *data_size);
 
+#endif
 
