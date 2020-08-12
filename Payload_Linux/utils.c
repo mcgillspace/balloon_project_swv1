@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
-#nclude <arpa/inet.h>
+#include <arpa/inet.h>
 
 uint8_t *i2c_serialize(uint8_t buf, size_t *buf_size, const uint8_t data){
 	
