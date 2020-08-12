@@ -20,14 +20,10 @@ MINUTES_BETWEEN_READS = 5
 #bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, bme_cs)
 
 while: True
+        # always using metric units
         humidity = format(bme280.humidity, ".1f")
         pressure = format(bme280.pressure, ".1f")
         temp_c = bme280.temperature
-        
-        # always using metric units
-        streamer.log(SENSOR_LOCATION_NAME + "Temperature(C)", temp_c)
-        streamer.log(SENSOR_LOCATION_NAME + "Humidity(%)", humidity)
-        streamer.log(SENSOR_LOCATION_NAME + "Pressure(hPA)", pressure)
-        streamer.flush()
+       
         time.sleep(60*MINUTES_BETWEEN_READS)
         
