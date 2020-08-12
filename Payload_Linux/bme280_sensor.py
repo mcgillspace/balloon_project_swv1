@@ -22,5 +22,8 @@ while: True
         pressure = format(bme280.pressure, ".1f")
         temp_c = bme280.temperature
        
-        time.sleep(60*MINUTES_BETWEEN_READS)
+        # saving sensor data to file found in raspberry pi
+        with open("file_location/adaSensor.csv", 'w') as file:
+                file.write(temp_c, pressure, humidity) 
         
+              
