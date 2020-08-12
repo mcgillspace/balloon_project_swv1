@@ -23,7 +23,7 @@ while: True
         temp_c = bme280.temperature
        
         # saving sensor data to file found in raspberry pi
-        with open("file_location/adaSensor.csv", 'w') as file:
+        with open("/home/alarm/Desktop/adaSensor.csv", 'w') as file:
                 file.write(temp_c, pressure, humidity) 
         
               
