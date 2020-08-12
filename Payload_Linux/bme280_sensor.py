@@ -16,7 +16,6 @@ ACCESS_KEY = "YOUR ACCESS KEY HERE"
 # change this to match the launch location's pressure (hPa) at sea level
 bme280.sea_level_pressure = 1013.25
 MINUTES_BETWEEN_READS = 5
-METRIC_UNITS = True
 # ---------------------------------
 
 # OR create library object using our Bus SPI port
@@ -25,16 +24,15 @@ METRIC_UNITS = True
 #bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, bme_cs)
 
 streamer = Streamer(bucket_name=BUCKET_NAME, bucket_key=BUCKET_KEY, access_key=ACCESS_KEY)
-while True:
+while: True
         humidity = format(bme280.humidity, ".1f")
         pressure = format(bme280.pressure, ".1f")
         temp_c = bme280.temperature
-        if METRIC_UNITS:
-                streamer.log(SENSOR_LOCATION_NAME + "Temperature(C)", temp_c)
-        else:
-                temp_f = format(temp_c * 9.0 / 5.0 + 32.0, ".1f")
-                streamer.log(SENSOR_LOCATION_NAME + " Temperature(F)", temp_f)
+        
+        # always using metric units
+        streamer.log(SENSOR_LOCATION_NAME + "Temperature(C)", temp_c)
         streamer.log(SENSOR_LOCATION_NAME + "Humidity(%)", humidity)
         streamer.log(SENSOR_LOCATION_NAME + "Pressure(hPA)", pressure)
         streamer.flush()
         time.sleep(60*MINUTES_BETWEEN_READS)
+        
