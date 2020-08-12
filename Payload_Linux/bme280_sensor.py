@@ -1,10 +1,11 @@
 import board
 import busio
+import time
 import adafruit_bme280
 from time import gmtime, strftime
 
-NUMTRIALS = 1000
-
+NUMTRIALS = 3000
+TIME_BETWEEN_TAKES = 0
 
 def takeData(bme280):
 	# Units: 0 - 100%, hPa, m, celsius
@@ -28,11 +29,12 @@ bme280.sea_level_pressure = 1013.25
 
 #Creates a file called adaSensor if it does not already exist 
 #and appends data to it 
-file = open("/home/alarm/Desktop/adaSensor.txt", "a")
+file = open("/home/alarm/Desktop/balloon_project_swv1/Payload_Linux/Sensor_Analysis/adaSensor.txt", "a")
 
 for i in range(NUMTRIALS):
 	data = takeData(bme280)
 	file.write(data)
+	time.sleep(TIME_BETWEEN_TAKES)
 
 file.close()
          
