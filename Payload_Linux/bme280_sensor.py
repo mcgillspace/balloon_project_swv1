@@ -25,8 +25,14 @@ time_taken = strftime("%d %b %Y %H:%M:%S", gmtime())
 
 # saving sensor data to file found in raspberry pi
 # creating file if not already made; if made, write to it
-f = open("/home/alarm/Desktop/adaSensor.csv", "a+")
-f.write(time_taken, temp_c, pressure, humidity) 
-f.close()
+data = [time_taken, f"{humidity}", f"{pressure}", f"{temp_c}"]
+file = open("adaSensor.txt", "a")
+
+for line in data:
+  # write line to output file
+  file.write(line)
+  file.write("\n")
+  
+file.close()
         
               
