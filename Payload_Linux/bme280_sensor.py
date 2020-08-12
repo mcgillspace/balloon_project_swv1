@@ -6,9 +6,6 @@ import adafruit_bme280
 # Create library object using our Bus I2C port
 i2c = busio.I2C(board.SCL, board.SDA)
 bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
- 
-# User settings
-SENSOR_LOCATION_NAME = "ANSERIS-I"
 
 # change this to match the launch location's pressure (hPa) at sea level
 bme280.sea_level_pressure = 1013.25
