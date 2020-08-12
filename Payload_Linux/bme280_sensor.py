@@ -17,7 +17,7 @@ MINUTES_BETWEEN_READS = 5
 #bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, bme_cs)
 
 
-# always using metric units
+# units: hPa, celsius
 humidity = format(bme280.humidity, ".1f")
 pressure = format(bme280.pressure, ".1f")
 temp_c = bme280.temperature
