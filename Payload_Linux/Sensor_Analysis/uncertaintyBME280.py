@@ -16,16 +16,27 @@ colours = cm.rainbow(np.linspace(0, 1, 4))
 
 fig , [ax0,ax1,ax2,ax3]= plt.subplots(4,1, figsize=(22,20))
 
+<<<<<<< HEAD
 ax0.set_ylabel("Humidity (%)",fontsize=FONTISZE)
 ax0.plot(humidity,'.',color=colours[0],markersize=MARKERSIZE)
+=======
+ax0.set_ylabel("Humidity (%)",color=colours[0],fontsize=22)
+ax0.plot(humidity,'.')
+>>>>>>> cabc3d332df3ccbc31c1b96fdb4baa6f0c079bd0
 ax0.xaxis.set_visible(False)
 ax0.axhline(np.average(humidity))
 
+<<<<<<< HEAD
 ax1.set_ylabel("Pressure (hPa)",fontsize=FONTISZE)
 ax1.plot(pressure,'.',color=colours[1],markersize=MARKERSIZE)
+=======
+ax1.set_ylabel("Pressure (hPa)",color=colours[1],fontsize=22)
+ax1.plot(pressure,'.')
+>>>>>>> cabc3d332df3ccbc31c1b96fdb4baa6f0c079bd0
 ax1.xaxis.set_visible(False)
 ax1.axhline(np.average(pressure))
 
+<<<<<<< HEAD
 ax2.set_ylabel("Temperature (C)",fontsize=FONTISZE)
 ax2.plot(temperature,'.',color=colours[2],markersize=MARKERSIZE)
 ax2.axhline(np.average(temperature))
@@ -65,4 +76,12 @@ print (f"Altitude recorded is {np.round(np.average(altitude),3)} with error {np.
 plt.show()
 
 
+=======
+ax2.set_ylabel("Temperature (C)",color=colours[2],fontsize=22)
+ax2.plot(temperature,'.')
+ax2.xaxis.set_visible(False)
+
+ax3.set_ylabel("Altitude (m)",color=colours[3],fontsize=22)
+ax3.plot(altitude,'.')
+>>>>>>> cabc3d332df3ccbc31c1b96fdb4baa6f0c079bd0
 
