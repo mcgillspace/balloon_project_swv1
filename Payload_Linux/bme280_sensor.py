@@ -16,14 +16,14 @@ MINUTES_BETWEEN_READS = 5
 #bme_cs = digitalio.DigitalInOut(board.D10)
 #bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, bme_cs)
 
-while: True
-        # always using metric units
-        humidity = format(bme280.humidity, ".1f")
-        pressure = format(bme280.pressure, ".1f")
-        temp_c = bme280.temperature
-       
-        # saving sensor data to file found in raspberry pi
-        with open("/home/alarm/Desktop/adaSensor.csv", 'w') as file:
-                file.write(temp_c, pressure, humidity) 
+
+# always using metric units
+humidity = format(bme280.humidity, ".1f")
+pressure = format(bme280.pressure, ".1f")
+temp_c = bme280.temperature
+
+# saving sensor data to file found in raspberry pi
+with open("/home/alarm/Desktop/adaSensor.csv", 'w') as file:
+        file.write(temp_c, pressure, humidity) 
         
               
