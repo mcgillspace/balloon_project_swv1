@@ -12,11 +12,11 @@ bus=SMBus(1)
 time.sleep(1)
 
 i = 0
-while (i<20): 
+while (i<200): 
 	try:	
 		# read byte from the specified address
-		order= bus.read_byte(addr)
-
+		#order= bus.read_byte(addr)
+		order = 2
 		# update user on the i2c command sent
 		# each value corresponds to a unique camera operation
 		print ("The command order is: ", order)	
