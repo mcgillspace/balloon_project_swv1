@@ -5,8 +5,8 @@
  *      Author: joebe
  */
 
-#ifndef __CORE_SCRAMBLER_H_
-#define __CORE_SCRAMBLER_H_
+#ifndef __SCRAMBLER_H_
+#define __SCRAMBLER_H_
 
 #include <stdlib.h>
 #include "lfsr.h"

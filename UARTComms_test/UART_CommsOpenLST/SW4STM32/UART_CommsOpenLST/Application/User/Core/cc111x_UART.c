@@ -100,14 +100,12 @@ cc_tx_wr_reg (uint16_t addr, uint8_t data)
 
   if (addr >= CC_EXT_ADD) {
     len = 3;
-
     aTxBuffer[0] = 0x2F;
     aTxBuffer[1] = (uint8_t) (0x00FF & addr);
     aTxBuffer[2] = data;
   }
   else {
     len = 2;
-
     aTxBuffer[0] = (uint8_t) (0x00FF & addr);
     aTxBuffer[1] = data;
   }

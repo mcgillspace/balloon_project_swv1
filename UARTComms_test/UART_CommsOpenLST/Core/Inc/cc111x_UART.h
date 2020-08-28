@@ -8,7 +8,7 @@
 #ifndef __CC111X_UART_H_
 #define __CC111X_UART_H_
 #include <stdint.h>
-#include "stm32l1xx_hal.h"
+#include "stm32f4xx_hal_conf.h"
 #include "cc_definitions.h"
 #include "cc_commands.h"
 #include "config.h"

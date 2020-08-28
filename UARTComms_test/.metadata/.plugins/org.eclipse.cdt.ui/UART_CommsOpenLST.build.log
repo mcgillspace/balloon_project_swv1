@@ -1,16 +1,78 @@
-22:13:51 **** Incremental Build of configuration Debug for project UART_CommsOpenLST ****
+00:39:15 **** Incremental Build of configuration Debug for project UART_CommsOpenLST ****
 make -j8 all 
 Building file: ../Application/User/Core/cc111x_UART.c
+Building file: ../Application/User/Core/cc_tx_init.c
+Invoking: MCU GCC Compiler
 Invoking: MCU GCC Compiler
 C:\Users\joebe\Desktop\balloon_project_swv1\UARTComms_test\UART_CommsOpenLST\SW4STM32\UART_CommsOpenLST\Debug
 arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/USB_HOST/App" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/USB_HOST/Target" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Core/Inc" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Middlewares/ST/STM32_USB_Host_Library/Core/Inc" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/User/Core/cc111x_UART.d" -MT"Application/User/Core/cc111x_UART.o" -o "Application/User/Core/cc111x_UART.o" "../Application/User/Core/cc111x_UART.c"
-In file included from ../Application/User/Core/cc111x_UART.c:7:0:
-C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Core/Inc/cc111x_UART.h:11:10: fatal error: stm32l1xx_hal.h: No such file or directory
- #include "stm32l1xx_hal.h"
-          ^~~~~~~~~~~~~~~~~
-compilation terminated.
-Application/User/Core/subdir.mk:27: recipe for target 'Application/User/Core/cc111x_UART.o' failed
+C:\Users\joebe\Desktop\balloon_project_swv1\UARTComms_test\UART_CommsOpenLST\SW4STM32\UART_CommsOpenLST\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/USB_HOST/App" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/USB_HOST/Target" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Core/Inc" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Middlewares/ST/STM32_USB_Host_Library/Core/Inc" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/User/Core/cc_tx_init.d" -MT"Application/User/Core/cc_tx_init.o" -o "Application/User/Core/cc_tx_init.o" "../Application/User/Core/cc_tx_init.c"
+In file included from C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:234:0,
+                 from C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:30,
+                 from C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:29,
+                 from C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Core/Inc/stm32f4xx_hal_conf.h:272,
+                 from C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Core/Inc/cc111x_UART.h:11,
+                 from ../Application/User/Core/cc111x_UART.c:7:
+C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:220:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_Init(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+In file included from C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:234:0,
+                 from C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:30,
+                 from C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:29,
+                 from C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Core/Inc/stm32f4xx_hal_conf.h:272,
+                 from C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Core/Inc/cc111x_UART.h:11,
+                 from C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Core/Inc/cc_tx_init.h:12,
+                 from ../Application/User/Core/cc_tx_init.c:7:
+C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:220:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_Init(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:221:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_DeInit(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:221:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_DeInit(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:224:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:224:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:237:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/Users/joebe/Desktop/balloon_project_swv1/UARTComms_test/UART_CommsOpenLST/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:237:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+../Application/User/Core/cc111x_UART.c: In function 'cc_tx_rd_reg':
+../Application/User/Core/cc111x_UART.c:57:11: warning: variable 'temp_TxBuffer' set but not used [-Wunused-but-set-variable]
+   uint8_t temp_TxBuffer[4] = { 0, 0, 0, 0 };
+           ^~~~~~~~~~~~~
+../Application/User/Core/cc111x_UART.c: In function 'cc_tx_wr_reg':
+../Application/User/Core/cc111x_UART.c:99:11: warning: variable 'len' set but not used [-Wunused-but-set-variable]
+   uint8_t len = 0;
+           ^~~
+../Application/User/Core/cc111x_UART.c:97:11: warning: variable 'aTxBuffer' set but not used [-Wunused-but-set-variable]
+   uint8_t aTxBuffer[4];
+           ^~~~~~~~~
+At top level:
+../Application/User/Core/cc111x_UART.c:29:16: warning: 'tx_frag_buf' defined but not used [-Wunused-variable]
+ static uint8_t tx_frag_buf[2 + CC1120_TX_FIFO_SIZE];
+                ^~~~~~~~~~~
+Application/User/Core/subdir.mk:30: recipe for target 'Application/User/Core/cc_tx_init.o' failed
+make: *** [Application/User/Core/cc_tx_init.o] Error 1
+make: *** Waiting for unfinished jobs....
 make: *** [Application/User/Core/cc111x_UART.o] Error 1
+Application/User/Core/subdir.mk:30: recipe for target 'Application/User/Core/cc111x_UART.o' failed
 
-22:13:52 Build Finished (took 813ms)
+00:39:16 Build Finished (took 1s.180ms)
 

@@ -5,8 +5,8 @@
  *      Author: joebe
  */
 
-#ifndef APPLICATION_USER_CORE_UTILS_H_
-#define APPLICATION_USER_CORE_UTILS_H_
+#ifndef __UTILS_H_
+#define __UTILS_H_
 
 #include <stdint.h>
 #include <stddef.h>

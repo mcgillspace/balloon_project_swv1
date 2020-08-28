@@ -5,8 +5,8 @@
  *      Author: joebe
  */
 
-#ifndef APPLICATION_USER_CORE_STATUS_H_
-#define APPLICATION_USER_CORE_STATUS_H_
+#ifndef __STATUS_H_
+#define __STATUS_H_
 
 
 enum {

@@ -9,7 +9,7 @@
 #define __CC_TX_INIT_H_
 
 #include "cc_definitions.h"
-#include "cc111x_spi.h"
+#include "cc111x_UART.h"
 #include <stdint.h>
 
 void
@@ -20,5 +20,3 @@ void
 tx_cw_registerConfig ();
 
 #endif
-
-#endif /* APPLICATION_USER_CORE_CC_TX_INIT_H_ */
