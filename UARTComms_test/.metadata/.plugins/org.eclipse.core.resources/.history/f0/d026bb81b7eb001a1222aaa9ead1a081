@@ -1,0 +1,208 @@
+/*
+ * upsat-comms-software: Communication Subsystem Software for UPSat satellite
+ *
+ *  Copyright (C) 2016, Libre Space Foundation <http://librespacefoundation.org/>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+/*
+ * Rf settings for CC1120
+ */
+#include <cc_tx_init.h>
+#include "cc1120_config.h"
+
+static const registerSetting_t TX_preferredSettings[] =
+  {
+    { SYNC1, 0xD3 },
+    { SYNC0, 0x91 },
+    { PKTLEN, 0xFF },
+    { PKTCRTL1, 0x04 },
+    { PKTCRTL0, 0x05 },
+    { ADDR, 0x00 },
+    { CHANNR, 0x00 },
+    { FSCTRL1, 0x06 },
+    { FSCTRL0, 0x00 },
+    { FREQ2, 0x10 },
+    { FREQ1, 0x23 },
+    { FREQ0, 0xA6 },
+    { MDMCFG4, 0xF8 },
+    { MDMCFG3, 0x75 },
+    { MDMCFG2, 0x13 },
+    { MDMCFG1, 0x22 },
+    { MDMCFG0, 0xE5 },
+    { DEVIATN, 0x11 },
+    { MCSM2, 0x07 },
+    { MCSM1, 0x30 },
+    { MCSM0, 0x18 },
+    { FOCCFG, 0x17 },
+    { BSCFG, 0x6C },
+    { AGCCTRL2, 0x03 },
+    { AGCCTRL1, 0x40 },
+    { AGCCTRL0, 0x91 },
+	{ FREND1, 0x56 },
+	{ FREND0, 0x17 },
+	{ FSCAL3, 0xE9 },
+	{ FSCAL2, 0x2A },
+	{ FSCAL1, 0x00 },
+	{ FSCAL0, 0x1F },
+	{ TEST2, 0x88 },
+	{ TEST1, 0x31 },
+	{ TEST0, 0x09 },
+	{ PA_TABLE7, 0x62 },
+	{ PA_TABLE6, 0x3C },
+	{ PA_TABLE5, 0x65 },
+	{ PA_TABLE4, 0x37 },
+	{ PA_TABLE3, 0x33 },
+	{ PA_TABLE2, 0x0E },
+	{ PA_TABLE1, 0x12 },
+	{ PA_TABLE0, 0x00 },
+	{ IOCFG2, 0x00 },
+	{ IOCFG1, 0x00 },
+	{ IOCFG0, 0x06 },
+	{ FS_VCO0, 0xB4 },
+	{ XOSC5, 0x0E },
+	{ XOSC1, 0x03 },
+	{ DCFILTOFFSET_I1, 0xF8 },
+	{ DCFILTOFFSET_I0, 0x39 },
+	{ DCFILTOFFSET_Q1, 0x0E },
+	{ DCFILTOFFSET_Q0, 0x9B },
+	{ CFM_DATA_CFG, 0x00 },
+	{ IQIE_I1, 0xEF },
+	{ IQIE_I0, 0xDE },
+	{ IQIE_Q1, 0x02 },
+	{ IQIE_Q0, 0x2F },
+	{ AGC_GAIN1, 0x13 },
+	{ SERIAL_STATUS, 0x10 },
+	{ MODCFG_DEV_E, 0x0B } };
+
+
+/**
+ * Performs the setup of the TX CC1120 registers
+ */
+void
+tx_registerConfig ()
+{
+  unsigned char writeByte;
+  unsigned i;
+  // Reset radio
+  cc_tx_cmd (SRES);
+
+  // Write registers to radio
+  for (i = 0; i < (sizeof(TX_preferredSettings) / sizeof(registerSetting_t));
+      i++) {
+    writeByte = TX_preferredSettings[i].dat;
+    cc_tx_wr_reg (TX_preferredSettings[i].addr, writeByte);
+  }
+}
+/**
+ * Performs the setup of the TX CC1120 registers suitable for CW transmission
+ */
+void
+tx_cw_registerConfig ()
+{
+  unsigned char writeByte;
+  unsigned i;
+  // Reset radio
+  cc_tx_cmd (SRES);
+
+  // Write registers to radio
+  for (i = 0; i < (sizeof(CW_preferredSettings) / sizeof(registerSetting_t));
+      i++) {
+    writeByte = CW_preferredSettings[i].dat;
+    cc_tx_wr_reg (CW_preferredSettings[i].addr, writeByte);
+  }
+}
+
+void
+tx_manualCalibration ()
+{
+
+  uint8_t original_fs_cal2;
+  uint8_t calResults_for_vcdac_start_high[3];
+  uint8_t calResults_for_vcdac_start_mid[3];
+  uint8_t marcstate;
+  uint8_t writeByte;
+
+  // 1) Set VCO cap-array to 0 (FS_VCO2 = 0x00)
+  writeByte = 0x00;
+  cc_tx_wr_reg (FS_VCO2, writeByte);
+
+  // 2) Start with high VCDAC (original VCDAC_START + 2):
+  cc_tx_rd_reg (FS_CAL2, &original_fs_cal2);
+  writeByte = original_fs_cal2 + VCDAC_START_OFFSET;
+  cc_tx_wr_reg (FS_CAL2, writeByte);
+
+  // 3) Calibrate and wait for calibration to be done
+  //   (radio back in IDLE state)
+  cc_tx_cmd (SCAL);
+
+  do {
+    cc_tx_rd_reg (MARCSTATE, &marcstate);
+  }
+  while (marcstate != 0x41);
+
+  // 4) Read FS_VCO2, FS_VCO4 and FS_CHP register obtained with
+  //    high VCDAC_START value
+  cc_tx_rd_reg (FS_VCO2, &calResults_for_vcdac_start_high[FS_VCO2_INDEX]);
+  cc_tx_rd_reg (FS_VCO4, &calResults_for_vcdac_start_high[FS_VCO4_INDEX]);
+  cc_tx_rd_reg (FS_CHP, &calResults_for_vcdac_start_high[FS_CHP_INDEX]);
+
+  // 5) Set VCO cap-array to 0 (FS_VCO2 = 0x00)
+  writeByte = 0x00;
+  cc_tx_wr_reg (FS_VCO2, writeByte);
+
+  // 6) Continue with mid VCDAC (original VCDAC_START):
+  writeByte = original_fs_cal2;
+  cc_tx_wr_reg (FS_CAL2, writeByte);
+
+  // 7) Calibrate and wait for calibration to be done
+  //   (radio back in IDLE state)
+  cc_tx_cmd (SCAL);
+
+  do {
+    cc_tx_rd_reg (MARCSTATE, &marcstate);
+  }
+  while (marcstate != 0x41);
+
+  // 8) Read FS_VCO2, FS_VCO4 and FS_CHP register obtained
+  //    with mid VCDAC_START value
+  cc_tx_rd_reg (FS_VCO2, &calResults_for_vcdac_start_mid[FS_VCO2_INDEX]);
+  cc_tx_rd_reg (FS_VCO4, &calResults_for_vcdac_start_mid[FS_VCO4_INDEX]);
+  cc_tx_rd_reg (FS_CHP, &calResults_for_vcdac_start_mid[FS_CHP_INDEX]);
+
+  // 9) Write back highest FS_VCO2 and corresponding FS_VCO
+  //    and FS_CHP result
+  if (calResults_for_vcdac_start_high[FS_VCO2_INDEX]
+      > calResults_for_vcdac_start_mid[FS_VCO2_INDEX]) {
+    writeByte = calResults_for_vcdac_start_high[FS_VCO2_INDEX];
+    cc_tx_wr_reg (FS_VCO2, writeByte);
+    writeByte = calResults_for_vcdac_start_high[FS_VCO4_INDEX];
+    cc_tx_wr_reg (FS_VCO4, writeByte);
+    writeByte = calResults_for_vcdac_start_high[FS_CHP_INDEX];
+    cc_tx_wr_reg (FS_CHP, writeByte);
+  }
+  else {
+    writeByte = calResults_for_vcdac_start_mid[FS_VCO2_INDEX];
+    cc_tx_wr_reg (FS_VCO2, writeByte);
+    writeByte = calResults_for_vcdac_start_mid[FS_VCO4_INDEX];
+    cc_tx_wr_reg (FS_VCO4, writeByte);
+    writeByte = calResults_for_vcdac_start_mid[FS_CHP_INDEX];
+    cc_tx_wr_reg (FS_CHP, writeByte);
+  }
+}
+
+
+

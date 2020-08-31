@@ -1,13 +1,87 @@
 /*
- * cc_definitions.h
+ * upsat-comms-software: Communication Subsystem Software for UPSat satellite
  *
- *  Created on: Aug 27, 2020
- *      Author: joebe
+ *  Copyright (C) 2016, Libre Space Foundation <http://librespacefoundation.org/>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef __CC_DEFINITIONS_H
 #define __CC_DEFINITIONS_H
 
+#define SYNC1 0xDF00		//Sync word high byte
+#define SYNC0 0xDF01		//Sync word low byte
+#define PKTLEN 0xDF02		//Packet length
+#define PKTCTRL1 0xDF03	//Packet Automation control
+#define PKTCTRL0 0xDF04	//Packet Automation control
+#define ADDR 0xDF05		//Device address
+#define CHANNR 0xDF06		//Channel number
+#define FSCTRL1 0xDF07		//Frequency synthesizer control
+#define FSCTRL0 0xDF08		//Frequency synthesizer control
+#define FREQ2 0xDF09		//Frequency control word, high byte
+#define FREQ1 0xDF0A		//Frequency control word, middle byte
+#define FREQ0 0xDF0B		//Frequency control word, low byte
+#define MDMCFG4 0xDF0C		//Modem configuration
+#define MDMCFG3 0xDF0D		//Modem configuration
+#define MDMCFG2 0xDF0E 	//Modem configuration
+#define MDMCFG1 0xDF0F 	//Modem configuration
+#define MDMCFG0 0xDF10 	//Modem configuration
+#define DEVIATN 0xDF11 	//Modem deviation setting
+#define MCSM2 0xDF12 		//Main Radio Control State Machine configuration
+#define MCSM1 0xDF13 		//Main Radio Control State Machine configuration
+#define MCSM0 0xDF14 		//Main Radio Control State Machine configuration
+#define FOCCFG 0xDF15 		//Frequency Offset Compensation configuration
+#define BSCFG 0xDF16 		//Bit Synchronization configuration
+#define AGCCTRL2 0xDF17 	//AGC control
+#define AGCCTRL1 0xDF18 	//AGC control
+#define AGCCTRL0 0xDF19 	//AGC control
+#define FREND1 0xDF1A 		//Front end RX configuration
+#define FREND0 0xDF1B 		//Front end TX configuration
+#define FSCAL3 0xDF1C 		//Frequency synthesizer calibration
+#define FSCAL2 0xDF1D 		//Frequency synthesizer calibration
+#define FSCAL1 0xDF1E		//Frequency synthesizer calibration
+#define FSCAL0 0xDF1F 		//Frequency synthesizer calibration
+#define TEST2 0xDF23		// various test settings
+#define TEST1 0xDF24 		// various test settings
+#define TEST0 0xDF25 		// various test settings
+#define PA_TABLE7 0xDF27 	// PA output power setting 7
+#define PA_TABLE6 0xDF28 	// PA output power setting 6
+#define PA_TABLE5 0xDF29 	// PA output power setting 5
+#define PA_TABLE4 0xDF2A	// PA output power setting 4
+#define PA_TABLE3 0xDF2B 	// PA output power setting 3
+#define PA_TABLE2 0xDF2C 	// PA output power setting 2
+#define PA_TABLE1 0xDF2D 	// PA output power setting 1
+#define PA_TABLE0 0xDF2E 	// PA output power setting 0
+#define IOCFG2 0xDF2F 		// radio test signal configuration (P1_7)
+#define IOCFG1 0xDF30 		// radio test signal configuration (P1_6)
+#define IOCFG0 0xDF31 		// radio test signal configuration (P1_5)
+#define PARTNUM 0xDF36 	// chip ID[15:8]
+#define VERSION 0xDF37 	// chip ID[7:0]
+#define FREQEST 0xDF38l 	// frequency offset estimate
+#define LQI 0xDF39l 		// link quality indicator
+#define RSSI 0xDF3A 		// received signal strength indication
+#define MARCSTATE 0xDF3B 	// main radio control state
+#define PKTSTATUS 0xDF3C 	// packet status
+#define VCO_VC_DAC 0xDF3D 	// PLL calibration current
+
+
+
+
+
+
+
+/*
 #define IOCFG3 0x0000
 #define IOCFG2 0x0001
 #define IOCFG1 0x0002
@@ -48,13 +122,22 @@
 #define WOR_EVENT0_LSB 0x0025
 #define PKT_CFG2 0x0026
 #define PKT_CFG1 0x0027
+*/
+
 #define PKT_CFG0 0x0028
+
+/*
+
 #define RFEND_CFG1 0x0029
 #define RFEND_CFG0 0x002A
 #define PA_CFG2 0x002B
 #define PA_CFG1 0x002C
 #define PA_CFG0 0x002D
+*/
+
 #define PKT_LEN 0x002E
+/*
+
 #define IF_MIX_CFG 0x2F00
 #define FREQOFF_CFG 0x2F01
 #define TOC_CFG 0x2F02
@@ -178,10 +261,11 @@
 #define TXFIRST 0x2FD3
 #define RXLAST 0x2FD4
 #define TXLAST 0x2FD5
+*/
 #define NUM_TXBYTES 0x2FD6
 #define NUM_RXBYTES 0x2FD7
+
 #define FIFO_NUM_TXBYTES 0x2FD8
 #define FIFO_NUM_RXBYTES 0x2FD9
-#define FIFO_DMA_ACCESS 0x3E00;
 
 #endif

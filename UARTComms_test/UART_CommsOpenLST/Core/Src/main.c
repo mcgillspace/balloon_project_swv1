@@ -20,6 +20,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "usb_host.h"
+#include "cc112x_spi.h"
+#include "cc_definitions.h"
+#include "cc_tx_init.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -79,8 +82,6 @@ void MX_USB_HOST_Process(void);
   */
 int main(void)
 {
-  /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -113,10 +114,15 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  tx_registerConfig (&huart2);
+  uint8_t data;
+  /* USER CODE BEGIN 1 */
   while (1)
   {
     /* USER CODE END WHILE */
     MX_USB_HOST_Process();
+    cc_tx_rd_reg (FREQ1, data, &huart2);
+    printf("%d",data);
 
     /* USER CODE BEGIN 3 */
   }

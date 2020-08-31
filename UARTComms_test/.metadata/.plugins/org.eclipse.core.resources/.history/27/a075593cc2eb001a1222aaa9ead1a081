@@ -1,0 +1,98 @@
+/*
+ * upsat-comms-software: Communication Subsystem Software for UPSat satellite
+ *
+ *  Copyright (C) 2016, Libre Space Foundation <http://librespacefoundation.org/>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+/*
+ * Rf settings for CC1120
+ */
+#include <cc_tx_init.h>
+#include "cc1120_config.h"
+
+static const registerSetting_t TX_preferredSettings[] =
+  {
+    { SYNC1, 0xD3 },
+    { SYNC0, 0x91 },
+    { PKTLEN, 0xFF },
+    { PKTCTRL1, 0x04 },
+    { PKTCTRL0, 0x06 },
+    { ADDR, 0x00 },
+    { CHANNR, 0x00 },
+    { FSCTRL1, 0x06 },
+    { FSCTRL0, 0x00 },
+    { FREQ2, 0x10 },
+    { FREQ1, 0x23 },
+    { FREQ0, 0xA6 },
+    { MDMCFG4, 0xF8 },
+    { MDMCFG3, 0x75 },
+    { MDMCFG2, 0x13 },
+    { MDMCFG1, 0x22 },
+    { MDMCFG0, 0xE5 },
+    { DEVIATN, 0x11 },
+    { MCSM2, 0x07 },
+    { MCSM1, 0x30 },
+    { MCSM0, 0x18 },
+    { FOCCFG, 0x17 },
+    { BSCFG, 0x6C },
+    { AGCCTRL2, 0x03 },
+    { AGCCTRL1, 0x40 },
+    { AGCCTRL0, 0x91 },
+	{ FREND1, 0x56 },
+	{ FREND0, 0x17 },
+	{ FSCAL3, 0xE9 },
+	{ FSCAL2, 0x2A },
+	{ FSCAL1, 0x00 },
+	{ FSCAL0, 0x1F },
+	{ TEST2, 0x88 },
+	{ TEST1, 0x31 },
+	{ TEST0, 0x09 },
+	{ PA_TABLE7, 0x62 },
+	{ PA_TABLE6, 0x3C },
+	{ PA_TABLE5, 0x65 },
+	{ PA_TABLE4, 0x37 },
+	{ PA_TABLE3, 0x33 },
+	{ PA_TABLE2, 0x0E },
+	{ PA_TABLE1, 0x12 },
+	{ PA_TABLE0, 0x00 },
+	{ IOCFG2, 0x00 },
+	{ IOCFG1, 0x00 },
+	{ IOCFG0, 0x06 }};
+
+
+/**
+ * Performs the setup of the TX CC1110 registers
+ */
+void
+tx_registerConfig (UART_HandleTypeDef * huart)
+{
+  unsigned char writeByte;
+  unsigned i;
+  // Reset radio
+  cc_tx_cmd (SRES);
+
+  // Write registers to radio
+  for (i = 0; i < (sizeof(TX_preferredSettings) / sizeof(registerSetting_t));
+      i++) {
+    writeByte = TX_preferredSettings[i].dat;
+    cc_tx_wr_reg (TX_preferredSettings[i].addr, writeByte,huart);
+  }
+}
+
+
+
+
