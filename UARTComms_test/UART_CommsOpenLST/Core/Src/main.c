@@ -121,7 +121,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
     MX_USB_HOST_Process();
-    cc_tx_rd_reg (FREQ1, data, &huart2);
+    cc_tx_rd_reg ((uint8_t) FREQ1, data, &huart2);
     printf("%d",data);
 
     /* USER CODE BEGIN 3 */

@@ -23,9 +23,9 @@
 #define SYNC1 0xDF00		//Sync word high byte
 #define SYNC0 0xDF01		//Sync word low byte
 #define PKTLEN 0xDF02		//Packet length
-#define PKTCTRL1 0xDF03	//Packet Automation control
-#define PKTCTRL0 0xDF04	//Packet Automation control
-#define ADDR 0xDF05		//Device address
+#define PKTCTRL1 0xDF03		//Packet Automation control
+#define PKTCTRL0 0xDF04		//Packet Automation control
+#define ADDR 0xDF05			//Device address
 #define CHANNR 0xDF06		//Channel number
 #define FSCTRL1 0xDF07		//Frequency synthesizer control
 #define FSCTRL0 0xDF08		//Frequency synthesizer control
@@ -34,10 +34,10 @@
 #define FREQ0 0xDF0B		//Frequency control word, low byte
 #define MDMCFG4 0xDF0C		//Modem configuration
 #define MDMCFG3 0xDF0D		//Modem configuration
-#define MDMCFG2 0xDF0E 	//Modem configuration
-#define MDMCFG1 0xDF0F 	//Modem configuration
-#define MDMCFG0 0xDF10 	//Modem configuration
-#define DEVIATN 0xDF11 	//Modem deviation setting
+#define MDMCFG2 0xDF0E 		//Modem configuration
+#define MDMCFG1 0xDF0F 		//Modem configuration
+#define MDMCFG0 0xDF10 		//Modem configuration
+#define DEVIATN 0xDF11 		//Modem deviation setting
 #define MCSM2 0xDF12 		//Main Radio Control State Machine configuration
 #define MCSM1 0xDF13 		//Main Radio Control State Machine configuration
 #define MCSM0 0xDF14 		//Main Radio Control State Machine configuration
@@ -66,8 +66,8 @@
 #define IOCFG2 0xDF2F 		// radio test signal configuration (P1_7)
 #define IOCFG1 0xDF30 		// radio test signal configuration (P1_6)
 #define IOCFG0 0xDF31 		// radio test signal configuration (P1_5)
-#define PARTNUM 0xDF36 	// chip ID[15:8]
-#define VERSION 0xDF37 	// chip ID[7:0]
+#define PARTNUM 0xDF36 		// chip ID[15:8]
+#define VERSION 0xDF37 		// chip ID[7:0]
 #define FREQEST 0xDF38l 	// frequency offset estimate
 #define LQI 0xDF39l 		// link quality indicator
 #define RSSI 0xDF3A 		// received signal strength indication

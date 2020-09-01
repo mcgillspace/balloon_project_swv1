@@ -83,7 +83,7 @@ tx_registerConfig (UART_HandleTypeDef * huart)
   unsigned char writeByte;
   unsigned i;
   // Reset radio
-  cc_tx_cmd (SRES);
+  cc_tx_cmd (SRES,huart);
 
   // Write registers to radio
   for (i = 0; i < (sizeof(TX_preferredSettings) / sizeof(registerSetting_t));

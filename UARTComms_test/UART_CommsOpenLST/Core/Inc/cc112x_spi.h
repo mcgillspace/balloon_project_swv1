@@ -38,5 +38,5 @@ int32_t
 cc_tx_data_continuous (const uint8_t *data, size_t size, uint8_t *rec_data,
 		       size_t timeout_ms,UART_HandleTypeDef * huart);
 uint8_t
-cc_tx_cmd (uint8_t CMDStrobe);
+cc_tx_cmd (uint8_t CMDStrobe,UART_HandleTypeDef * huart);
 #endif

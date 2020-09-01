@@ -149,7 +149,7 @@ cc_tx_wr_reg (uint16_t addr, uint8_t data, UART_HandleTypeDef * huart)
  * @return the first byte of the SPI buffer. Can be used for error checking
  */
 uint8_t
-cc_tx_cmd (uint8_t CMDStrobe)
+cc_tx_cmd (uint8_t CMDStrobe, UART_HandleTypeDef * huart)
 {
 
   uint8_t tx_buf;
@@ -158,11 +158,12 @@ cc_tx_cmd (uint8_t CMDStrobe)
   tx_buf = CMDStrobe;
 
   /* chip select LOw */
-  HAL_GPIO_WritePin (GPIOA, GPIO_PIN_15, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin (GPIOD, GPIO_PIN_3, GPIO_PIN_RESET);
   /* Send-receive 1 byte */
-  HAL_SPI_TransmitReceive (&hspi1, &tx_buf, &rx_buf, sizeof(uint8_t), 5000);
+  HAL_UART_Transmit(huart, &tx_buf, sizeof(uint8_t), 5000);
+  HAL_UART_Receive(huart, &rx_buf, sizeof(uint8_t), 5000);
 
-  HAL_GPIO_WritePin (GPIOA, GPIO_PIN_15, GPIO_PIN_SET);
+  HAL_GPIO_WritePin (GPIOD, GPIO_PIN_3, GPIO_PIN_SET);
 
   /*
    * TODO: Return the whole RX buffer
@@ -248,7 +249,7 @@ cc_tx_data_continuous (const uint8_t *data, size_t size, uint8_t *rec_data,
       cc_tx_spi_write_fifo (data, rec_data, issue_len);
 
       /* Start the TX procedure */
-      cc_tx_cmd (STX);
+      cc_tx_cmd (STX,huart);
     }
     else{
       issue_len = min(CC1120_TXFIFO_AVAILABLE_BYTES, size - gone - in_fifo);
@@ -287,8 +288,8 @@ cc_tx_data_continuous (const uint8_t *data, size_t size, uint8_t *rec_data,
       if (timeout) {
 	SYSVIEW_PRINT("CC TX: Timeout %u", __LINE__);
 	delay_us(1000);
-	cc_tx_cmd (SIDLE);
-	cc_tx_cmd (SFTX);
+	cc_tx_cmd (SIDLE,huart);
+	cc_tx_cmd (SFTX,huart);
 	return 1;
       }
 
@@ -317,15 +318,15 @@ cc_tx_data_continuous (const uint8_t *data, size_t size, uint8_t *rec_data,
   if (timeout) {
     SYSVIEW_PRINT("CC TX: Timeout %u", __LINE__);
     delay_us(1000);
-    cc_tx_cmd (SIDLE);
-    cc_tx_cmd (SFTX);
+    cc_tx_cmd (SIDLE,huart);
+    cc_tx_cmd (SFTX,huart);
     return 1;
   }
 
   /* If you change this, you deserve to die trying to debug... */
   delay_us(1000);
-  cc_tx_cmd (SIDLE);
-  cc_tx_cmd (SFTX);
+  cc_tx_cmd (SIDLE,huart);
+  cc_tx_cmd (SFTX,huart);
   return gone + in_fifo;
 }
 
